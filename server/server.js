@@ -25,5 +25,5 @@ const PostRoute=require("./route/PostRoute")
 
 
 app.use('/api/v1/postapp',PostRoute)
-const port=5000
-app.listen(port)
+ 
+app.listen(process.env.PORT)
