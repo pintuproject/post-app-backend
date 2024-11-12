@@ -14,7 +14,7 @@ mongoose.connect(process.env.MONGO_URI)
         .catch((err)=>console.log("error while connecting",err))
 
 app.use(cors({
-    origin:"http://localhost:5173",
+    origin:"https://post-app-backend-7hpn.onrender.com",
     methods:["GET","POST","PUT","DELETE"]
 }))
 app.use(express.json())
