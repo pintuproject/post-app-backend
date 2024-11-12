@@ -14,7 +14,7 @@ mongoose.connect(process.env.MONGO_URI)
         .catch((err)=>console.log("error while connecting",err))
 
 app.use(cors({
-    origin:"https://post-app-2512.netlify.app/",
+    origin:"https://post-app-2512.netlify.app",
     methods:["GET","POST","PUT","DELETE"]
 }))
 app.use(express.json())
