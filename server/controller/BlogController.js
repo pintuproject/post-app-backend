@@ -7,7 +7,8 @@ exports.addPost=async(req,res)=>{
 
 const{title,description}=req.body;
 
-const image=req.file ?req.file.path:null
+const image=req.file.path
+console.log(img)
  
     
 if(!title){
