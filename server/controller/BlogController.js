@@ -1,5 +1,6 @@
 const path=require("path")
 const Post=require("../model/Post")
+const cloudinary=require('../utils/cloudinary')
 
 exports.addPost=async(req,res)=>{
     console.log(req.body)
@@ -7,8 +8,8 @@ exports.addPost=async(req,res)=>{
 
 const{title,description}=req.body;
 
-const image=req.file.path
-console.log(img)
+const image = await cloudinary.uploader.upload(req.file.path);
+console.log(image)
  
     
 if(!title){
@@ -21,7 +22,7 @@ if(!image){
     return res.status(400).json({messsage:"image can not be empty"})
 }
 
-const newPost=new Post({title:title,description:description,imageUrl:image})
+const newPost=new Post({title:title,description:description,imageUrl:image.secure_url})
 console.log(newPost)
 await newPost.save()
 return res.status(200).json({message:"Post is created"})
